@@ -8,5 +8,16 @@
   width: 100vw;
 }
 .widget {
-  width: 246px;
+  border: 1px solid #000; /* Set your default border color here */
+  background-color: #f0f0f0; /* Set your default background color here */
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+  width: 200px;
+  height: 100px;
+}
+
+.widget:active {
+  border-color: #007bff; /* Set the border color when the button is clicked/active */
+  background-color: #cce5ff; /* Set the background color when the button is clicked/active */
 }
