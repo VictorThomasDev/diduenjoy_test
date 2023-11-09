@@ -2,24 +2,39 @@ import { useContext } from "react";
 import "./Select.css";
 import { KPIContext } from "../../context/context";
 
-function Select({ setAddKPI }) {
+function Select({ setAddKPI, setFormData }) {
   const [KPIs, setKPI] = useContext(KPIContext);
-  console.log(KPIs);
 
   function handleAdd() {
+    setFormData({
+      id: Math.floor(Math.random() * 100),
+      name: "",
+      tooltip: "",
+      trend: "",
+      value: "",
+    });
+    setAddKPI(true);
+  }
+
+  function handleUpdateData(KPI) {
+    setFormData(KPI);
     setAddKPI(true);
   }
 
   return (
     <div className="frame">
       <>
-        {/* {KPIs.map((KPI) => {
-          <div className="widget">toto</div>;
-        })} */}
+        {KPIs.map((KPI, key) => {
+          return (
+            <button className="widget" onClick={() => handleUpdateData(KPI)}>
+              {key}
+            </button>
+          );
+        })}
       </>
-      <div className="widget" onClick={handleAdd}>
+      <button className="widget" onClick={handleAdd}>
         +
-      </div>
+      </button>
     </div>
   );
 }

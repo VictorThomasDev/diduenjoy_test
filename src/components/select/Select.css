@@ -8,17 +8,5 @@
   width: 100vw;
 }
 .widget {
-  align-items: center;
-  border: 1px dashed;
-  border-color: var(--x-9eb-0be);
-  border-radius: 6px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  height: 133px;
-  justify-content: center;
-  overflow: hidden;
-  padding: 24px;
-  position: relative;
   width: 246px;
 }
