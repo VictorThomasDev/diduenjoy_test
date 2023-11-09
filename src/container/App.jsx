@@ -9,6 +9,7 @@ function App() {
   const [addKPI, setAddKPI] = useState(false);
   const [formData, setFormData] = useState();
 
+  console.log(KPI);
   return (
     <div className="App">
       <KPIContext.Provider value={[KPI, setKPI]}>

@@ -1,23 +1,6 @@
 import { useContext, useState } from "react";
 import { KPIContext } from "../../context/context";
 
-function checkUpdate(KPIs, formData) {
-  const newKPIs = [...KPIs];
-  let isNotNew = false;
-
-  for (let i = 0; i < KPIs.length; i++) {
-    console.log(KPIs[i].id, formData);
-
-    if (KPIs[i].id === formData.id) {
-      newKPIs[i] = formData;
-      console.log(KPIs[i], formData);
-      isNotNew = true;
-    }
-  }
-  if (isNotNew) return newKPIs;
-  return null;
-}
-
 function Form({ formData, setFormData }) {
   const [KPIs, setKPIs] = useContext(KPIContext);
 
@@ -31,15 +14,17 @@ function Form({ formData, setFormData }) {
   };
 
   const handleSubmit = (event) => {
-    const newKPIs = checkUpdate(KPIs, formData);
-    if (newKPIs !== null) {
-      console.log("oldone");
-      setKPIs(newKPIs);
-    } else {
-      console.log("newone");
-      setKPIs([...KPIs, formData]);
-      event.preventDefault();
-    }
+    event.preventDefault();
+    let is = false;
+    const newKPIs = KPIs.map((KPI) => {
+      if (KPI.id === formData.id) {
+        is = true;
+        return formData;
+      }
+      return KPI;
+    });
+    if (is) setKPIs([...newKPIs]);
+    else setKPIs([...KPIs, formData]);
   };
   return (
     <div className="DUE-test-case">
