@@ -1,5 +1,6 @@
 import { useContext, useState } from "react";
 import { KPIContext } from "../../context/context";
+import "./Form.css";
 
 function Form({ formData, setFormData }) {
   const [KPIs, setKPIs] = useContext(KPIContext);
@@ -28,7 +29,7 @@ function Form({ formData, setFormData }) {
   };
   return (
     <div className="DUE-test-case">
-      <h2>Card settings</h2>
+      <h2 className="title">Card settings</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="name">KPI name:</label>
         <input
