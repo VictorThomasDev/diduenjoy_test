@@ -23,12 +23,7 @@ function Form() {
 
   const handleSubmit = (event) => {
     console.log(formData);
-    setKPI((prev) => {
-      return {
-        ...prev,
-        [formData.name]: formData,
-      };
-    });
+    setKPI([...KPI, formData]);
     event.preventDefault();
   };
   return (
